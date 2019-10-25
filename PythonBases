@@ -1,0 +1,573 @@
+# 输出
+# print()
+
+# 输入
+# input()会阻塞程序(卡住),需要用键盘输入需要的数据,使用回车结束阻塞
+# 在python3中所有input进来的数据都是字符串
+
+# 变量的定义 变量名 = 值
+
+# 数字类型: 整型int, 浮点型float, 布尔值bool
+# 非数字类型: 列表list, 元组tuple, 字典dict, 集合set
+
+# 数据类型转换:
+# int()   将字符串转换为 整型，字符串必须看起来是一个 整型
+# float() 将字符串转换为 浮点型，字符串看起来要是一个 数字类型
+# int()   将浮点型转换   整型， 将.后面的数字全部去掉
+# float() 将整型转换     浮点型
+# 转换表达式字符串eval(), 去掉最外层引号
+
+字符串格式化输出
+# email = "12323@qq.com"
+# print("Name：%s %03d" % ("qq", 11))
+# print(f"email：{email}")
+# print("age：{}".format(18))
+# print("weight：{}".format("100"))
+
+# 运算符 比较运算符、逻辑运算符 and or not、赋值运算符、算术运算符
+
+# 条件判断 ---> if...elif...else时其中一个条件为真,那么后面的条件都不判断
+# while循环 ---> 先判断后循环 break跳出当层循环  continue跳出本次循环
+# for循环/遍历 ---> for i in 可遍历的对象
+
+
+# 列表：
+# 有序可变序列 []  列表中的数据类型可以各不相同
+# 1.列表定义
+# 2.列表元素的增加  append() insert() extend()
+# 3.运算符 + *
+# 4.列表元素的删除  pop() remove() clear() del
+# 5.列表元素访问与计数  count() index() in
+# 6.列表排序  sort() reverse() sorted() reversed()
+# 7.用于序列操作的常用内置函数 len() max() min() sum() #               zip() enumerate()
+# 8.列表遍历的三种方式
+# 9.列表推导式
+# 10.列表切片  切片返回的是列表元素的浅复制
+
+# 元组：
+#  有序不可变序列
+# 1.创建与删除
+# 2.元组与列表的区别
+# 3.元组的优点
+# 4.元组拆包
+# 使用tuple函数将其他序列转换为元组
+# 元组中的数据一旦定义就不允许更改
+# 元组的速度比列表更快。
+# 元组对不需要改变的数据进行“写保护”将使得代码更加安全。
+# 元组可用作字典键（特别是包含字符串、数值和其它元组这样的不可变数据的元组）
+# 元组有时还作为函数的返回值返回（返回多个值）
+
+
+# 字符串:
+# 1.字符串的常用操作方式
+#   upper lower； startswith endswith； find index ; strip
+#   split 字符串-->列表; join 列表-->字符串; replace; 切片；
+#   is; count; format; capitalize(); center(); title
+# 2.字符串是不可变变量，不支持直接通过下标修改
+# 3.两个案例：龟兔赛跑、猜单词游戏
+
+
+# 字典：
+# 无序可变序列
+# 字典中的键可以为任意不可变数据: 整数、实数、字符串、元组等
+# 1.字典定义
+# 2.字典的创建
+# 3.字典元素的读取  d = d[键] / d.get(键，不存在时返回的默认值) /
+# 4.字典元素的添加  d.setdefault(键：值) /  d[键]=值
+# 5.字典删除   d.pop(键)  / d.popitem()
+# 6.判断一个key是否在字典中  in
+# 7.遍历字典  for i in     keys() items()...
+# 8.有序字典  import collections x = collections.OrderedDict()
+# 9.字典推导式  { 键: 值 for 数据 in 数据集合 if 条件 }
+
+
+# 集合：
+# 无序可变序列 元素不可重复 且元素只能由不可变数据组成：数字、字符串、元组等
+# 1.集合定义   s = set()
+# 2.集合的创建  s ={}
+# 3.集合的删除  del / clear
+# 4.集合元素的增加与删除   add()   pop()随意删除一个 remove()
+# 5.集合操作  update()  |并 &交 -差  a<b a是b子集
+# 6.集合推导式
+# 7.案例：统计单词出现次数、奥运会足球分组
+
+
+# 变量引用   附加在对象上的标注或便签
+#           如果变量已经被定义，当给一个变量再赋值的时候，本质上是 修改了数据的引用
+#           不可变类型数据--值变，id变    断开引用，个人赋予新值
+#           可变类型数据--生成新对象，即有不同id  引用对象同时变
+# ==  is    值等  地址相同
+# 函数的参数作为引用
+#           数字是不可变变量，a += b使得a指向了新的数据；
+#           列表是可变变量，  a += b的结果是就地修改列表，追加数
+
+---------------------------------------------------------------------
+
+# 1.函数定义
+#       使用函数的好处:代码重用；便与修改，易扩展
+#       定义一个函数--->
+#           1 def 函数名（参数列表）：
+#           2     函数体
+#           函数名：
+#           必须以下划线或字母开头，可以包含任意字母、数字或下划线的组合。不能使用任何的标点符号。
+#           函数名是区分大小写的。 函数名不能是保留字。
+# 2. 函数的参数
+#       必需参数、位置参数/不定长参数*args、默认参数、关键字参数/关键字参数**kwargs
+#       def func(a, b, c, *args, d=0, e=1, **kwargs)
+# 3. 函数的返回值
+#       return 值
+#       函数在执行过程中只要遇到return语句，就会停止执行并返回结果
+# 4. 高阶函数
+#       接受一个或多个函数作为输入或者输出一个函数：
+#       接受的参数有函数 、返回值为函数(函数嵌套)
+# 5. 函数作用域
+#       作用域介绍:
+#             L：local，局部作用域，即函数中定义的变量；
+#             E：enclosing，嵌套的父级函数的局部作用域，即包含此函数的上级函数的局部作用域，但不是全局的；
+#             G：global，全局变量，就是模块级别定义的变量；
+#             B：built-in，系统固定模块里面的变量，比如int等。
+#             local和enclosing是相对的，enclosing变量相对上层来说也是local。
+#             搜索变量的优先级顺序依次是LEGB：作用域局部>外层作用域>当前模块中的全局>python内置作用域。
+#       作用域产生: 在Python中，只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域
+#       变量的修改: global关键字、nonlocal关键字
+# 6. 递归函数
+#       函数内部调用自己,需要有明确的结束条件
+#       例1(阶乘)、例2(斐波那契数列)、递归特性
+# 7. 匿名函数 关键字lambda表示匿名函数，冒号前面的n表示函数参数,可有多个参数。返回值就是该表达式的结果。
+#            calc = lambda n,m : n**n if n>m else m*m
+# 8. 内置函数
+#       map(函数，Iterable)    将传入的函数依次作用到序列的每个元素，并把结果作为新的Iterator返回
+#       reduce(函数，Iterable) from functools import reduce 函数必须接受两个参数；效果：reduce(func,[1,2,3]) --> func(func(1,2),3)对于序列内所有元素进行累计操作
+#       filter(函数，Iterable) 对于序列中的元素进行筛选。把传入的函数依次作用于每个元素，然后根据返回值是 True 还是 False 决定保留还是丢弃该元素。
+#       sorted(iterable, /, *, key=None, reverse=False) 按照keys进行排序，并按照对应关系返回list相应的元素。 key：接受一个函数，根据此函数返回的结果，进行排序; reverse：排序方向，默认为从小到大，reverse=True为逆向
+#                              可迭代对象：主要列表，字符串，元祖，集合和字典
+# 9. 函数式编程   面向数学的抽象，将计算描述为一种表达式求值。函数式程序就是一个表达式  不使用可变的变量，赋值，循环和其他命令式控制结构进行编程
+# 10. 将函数存储在模块中
+#     从模块导入方法
+#        导入整个模块：import 模块名(py文件的名字) | 使用:模块名.方法名()
+#        导入特定的函数：from 模块名 import 方法名 | 使用:方法名()
+#        函数/模块，起别名需要使用as关键字
+#        导入模块中的所有函数： from 模块名 import *
+# 11. 函数文档字符串
+#        help(函数名) 查看函数的帮助文档
+# 	     定义函数帮助文档:是在函数开头，用来多行注释的方法定义用来解释函数作用的语句
+
+
+
+
+# 面向过程: 亲力亲为
+# 面向对象: 调用方法
+# self cls 参数
+# 初始化方法init()
+# _str_ 方法
+# 1. 类和对象
+#        类: 一类事物的统称。
+#            类对象-->类名
+#            类属性-->特点：类对象所拥有的的属性，它被所有类对象的实例对象所共有。在内存中只存在一个副本。
+#                    定义：在类内部及init方法外部：类属性名/变量名 = 值。
+#                    获取/访问: 类外部---通过实例对象或类对象   实例对象引用类属性时，会产生一个同名的实例属性
+#                    修改:只可以通过类对象。如果用实例对象去修改相当于给是类对象添加一个同名的实例属性
+#                    公有类属性  定义:age = 值
+#                    私有类属性  定义:__age = 值
+#            类方法--> @classmethod 第一个参数必须是类对象，一般习惯以'cls'作为第一个参数的名字
+#                     获取/访问: 类外部---通过实例对象或类对象
+#                     类方法可以对类属性进行修改
+#          静态方法--> @staticmethod 不需要定义参数
+
+#      对象: 是实实在在存在事物, 用来描述客观事物的一个实体，由一组属性和方法构成
+#            实例对象-->通过类创建的对象。
+#            实例属性-->实例对象特有的属性。init方式初始化 self.属性 = 形参。是对象的标签
+#                      公有属性  定义:self.age
+#                               获取:类的外部---对象.属性名
+#                               修改:类的内部 |类的外部---对象.属性名=修改后的值
+#                      私有属性  定义:self.__age
+#                               获取:依赖于内部方法，自定义get,set方法 | @property方法提供私有属性的访问
+#                               修改:类的内部  set 重置私有属性值
+#              方法-->类对象拥有的方法。对象的功能、行为等
+# --------------------------------------------------------------------
+# 继承:
+# class 类名(父类名):
+#     pass
+# 子类继承自父类, 可以直接享受父类中已经封装好的方法，不需要再次开发
+# 子类中应该根据职责，封装子类特有的属性和方法
+# 当父类的方法实现不能满足子类需求时，可以对方法进行重写
+# 重写: 子类的方法名和父类的方法名一致的时候子类重写了父类的方法, 原因是因为父类的方法不足以支撑子类的需求,
+# 重写时子类调用父类的方法:
+#             (避免重写了父类的_init_()方法，导致父类Shape的__init\()方法没有被调用到的情况，一定要记在子类的init方法中调用super()._init_() )
+#             父类名.方法名(self)
+#             super().方法名(), 默认的自己, self
+#             super(类名, self).方法名(), 写什么类名会继承上一个类
+# 类名.__mro__查看继承的顺序
+#
+# --------------------------------------------------------------------
+
+# __new__()方法
+# python中定义的类在创建实例对象的时候，会自动执行init()方法，
+# 但是在执行init()方法之前，会执行new()方法。
+# __new__()方法的作用主要有两个：
+# 1.在内存中为对象分配空间
+# 2.返回对象的引用。（即对象的内存地址）
+# python解释器在获得引用的时候会将其传递给init()方法中的self。
+
+
+# object---所有python类型的父类
+# 继承 关系
+# 当我们的类中没有定义_new_方法时，创建对象时，Python会先调用父类（object）的_new_方法，在内存中创建一个实例，然后传递给我们的init方法。
+# 如果我们的自定义类型定义了_new_方法，就会覆盖父类（object）的__new__方法（父类的__new__方法不会被自动调用），所以我们要显式调用父类（object）的__new__方法，在内存中创建一个实例。
+
+
+# 单例模式
+# 所有通过类生成的对象的ID地址完全相同,即一个类只能生成一个对象
+
+# class A(object):
+#     id1 = None
+#
+#     def __new__(cls, *args, **kwargs):
+#         if A.id1 == None:
+#             A.id1 = super().__new__(cls)
+#         return A.id1
+#
+#     def __init__(self, name):
+#         self.name = name
+#
+#
+# print(A.id1)
+# a = A("merry")
+# print(A.id1)
+# print(a.name)
+# print(id(a))
+# b = A("luck")
+# print(b.name)
+# print(A.id1)
+# print(id(b))
+
+
+# property方法:
+#     方法1:方法名不同时
+#     p = property(getAge,setAge) #注意里面getAge,setAge不能带()
+#     对象名.p = 23如果使用=,则会判断为赋值，调用setAge方法。
+#     对象名.p直接使用对象名.p会自动判断会取值，调用getAge
+#
+#     方法2:方法名相同时
+#     @property下面默认跟的是get方法，如果设置成set会报错
+#     @函数名.setter，修饰set方法
+# class Human:
+#     def __init__(self, weight):
+#         self.__weight = weight  # self.属性 = 形参
+#
+#     # 定义对私有属性的get方法，获取私有属性
+#     def getWeight(self):
+#         return f"我偷偷告诉你我的体重是{self.__weight}斤"
+#
+#     # 定义对私有属性的重新赋值的set方法，重置私有属性
+#     def setWeight(self, weight):
+#         self.__weight = weight
+#
+#     p = property(getWeight, setWeight)
+#
+#
+# merry = Human(98)
+# print(merry.p)
+# merry.p = 100  # 如果使用=,则会判断为赋值，调用setAge方法
+# print(merry.p)
+# print(merry.getWeight())  # 这个时候set,get方法可以单独使用。
+#
+# class Human:
+#     def __init__(self, weight):
+#         self.__weight = weight  # self.属性 = 形参
+#
+#     @property  # 注意1.@proterty下面默认跟的是get方法，如果设置成set会报错。
+#     def Weight(self):
+#         return f"我偷偷告诉你我的体重是{self.__weight}斤"
+#
+#     @Weight.setter  # 注意2.这里是使用的上面函数名.setter，不是property.setter.
+#     def Weight(self, weight):
+#         self.__weight = weight
+#
+# L = Human(97)
+# print(L.Weight)
+# L.Weight = 99  # 注意3.有了property后，直接使用L.Weight,而不是L.Weight()方法了。
+# print(L.Weight)
+
+# class Class:
+#     num = 0
+#     def __init__(self):
+#         Class.num += 1
+#         print(f"我来自{Class.num}班")
+# for i in range(1, 10):
+#     Class()
+
+
+# 异常的概念
+#     程序在运行时，如果Python解释器遇到到一个会停止程序的执行，并且提示一些错误信息的错误，这就是异常.
+#     程序停止执行并且提示错误信息 这个动作，我们通常称之为：抛出(raise)异常
+# 异常捕获的完整语句:
+#         try:
+#             # 尝试执行的代码
+#             pass
+#         except 错误类型1:
+#             # 针对错误类型1，对应的代码处理
+#             pass
+#         except 错误类型2:
+#             # 针对错误类型2，对应的代码处理
+#             pass
+#         except (错误类型3, 错误类型4):
+#             # 针对错误类型3 和 4，对应的代码处理
+#             pass
+#         except Exception as result:
+#             # 打印错误信息
+#             print(result)
+#         else:
+#             # 没有异常才会执行的代码
+#             pass
+#         finally:
+#             # 无论是否有异常，都会执行的代码
+#             print("无论是否有异常，都会执行的代码")
+#
+# 异常的传递:
+#     当函数执行出现异常，会将异常传递给函数的调用一方。
+#     如果传递到主程序，仍然没有异常处理，程序才会被终止。
+# 手动抛出异常：
+#     Python 中提供了一个 Exception 异常类。在开发时，如果满足特定业务需求时，希望抛出异常
+#     1.创建一个Exception的对象   2.使用raise关键字抛出异常对象
+#     ex = Exception("密码长度不够")    raise ex
+# 自定义异常类：
+#     自定义异常主要是自己定义的异常类，对异常进行分门别类管理，自定义异常需要继承异常父类Exception
+#     主动抛出异常，就是实例化一个异常类
+
+# try:
+#     num = int(input("请输入整数："))
+#     result = 8 / num
+#     print(result)
+# except ValueError:
+#     print("请输入正确的整数")
+# except ZeroDivisionError:
+#     print("除 0 错误")
+# except Exception as e:
+#     print("未知错误 %s" % e)
+# else:
+#     print("正常执行")
+# finally:
+#     print("执行完成，但是不保证正确")
+
+
+
+# def input_password():
+#     pwd = input("请输入密码：")
+#     if len(pwd) >= 8:
+#         return pwd
+#     ex = Exception("密码长度不够")    # 创建一个Exception的对象 ex
+#     raise ex      # 使用raise关键字抛出异常对象 ex
+#
+# try:
+#     user_pwd = input_password()
+#     print(user_pwd)
+# except Exception as e:
+#     print("发现错误：%s" % e)
+
+
+
+# class Error(Exception):
+#     def __init__(self, color, name):
+#         self.color = color
+#         self.name = name
+# try:
+#     e = Error("black", "luck")  # 实例化一个异常类
+#     raise e  # 主动抛出异常
+#
+# except Error as a:
+#     print(a.color, a.name)  # 捕获的是Error类携带过来的信息
+# except Exception as obj:    # 万能捕获
+#     print(obj)
+
+# -------------------------------------------+
+# 模块的概念：
+# 导入模块中类或函数的方式：
+#  方式一：import 模块名
+#  方式二 :from 模块名 import 函数名
+#  方式三: from 模块名 import *
+#  方式四:from 模块名 import 函数名 as tt(自定义)
+
+# 包的概念:
+# 导入包中函数，以及模块的方式：
+#  方式一：from 包名 import 模块名
+#  方式二：from 包名.模块名 import 函数名
+#  方式三 ：import 包名.模块名
+#  方式四：from 包名 import *
+#         前提：在 init.py 文件中写入all变量，其中写入哪个模块则导入哪个模块，不写则什么都不导入 ---> __all__ = ['module3']
+#         使用：模块名.函数名()  ---> from mei import *   module3.output()
+#  方式五：import 包名
+#         前提：在包里面的init.py 文件里写入 from . import 模块名--->  from . import module3
+#         使用：包名.模块名.函数名() ---> import mei  mei.module3.output()
+
+
+# 编码：将字符转换为对应的二进制序列的过程叫做字符编码
+# 解码：将二进制序列转换为对应的字符的过程叫做字符解码
+#
+# 字符集:
+# ASCII码
+# GBK
+# Unicode（万国码）
+# UTF - 8: 字母数字符号用1个字节保存, 中文用3个字节保存
+
+# 编码的方法: 字符串.encode()
+# 解码的方法: 字节序列.decode()
+# -------------------------------------------------------
+# 文件的操作:
+# 文件:连续的字节序列
+# 文件的作用：保存数据
+# 文件操作流程：
+#         1、打开文件    open 函数负责打开文件，并且返回文件对象
+#         2、操作文件    read / write / close 三个方法都需要通过文件对象来调用
+#         3、关闭文件
+
+
+# 关于read的几个函数:
+# f.read()  可以传入一个数字，指定读取多少位
+# f.readline()  读取一行数据
+# f.readlines()  返回一个列表，每一行的数据就是列表中的每一个元素
+
+
+# 使用 with open（） as 读写文件
+
+
+# 文件指针:
+# 控制文件指针移动 方法：f.seek(offset,whence) offset代表文件指针的偏移量，单位是字节bytes
+# whence代表参照物，有三个取值
+# 0：参照文件的开头  1：参照当前文件指针所在的位置  2：参照文件末尾
+# PS：快速移动到文件末尾f.seek（0，2）
+#     其中whence=1和whence=2只能在b模式下使用
+#     f.tell()函数可以得到当前文件指针的位置
+
+
+# 打开文件的方式总结:
+# 1. 已经确定要打开的文件已存在（如果不存在会报错）。
+# 只读文本文件 ？ 用r
+# 只读非文本文件（图片等）？ 用rb
+# 要既读又写？ 在后边添个+号增加权限， 用r+ 或者 rb+
+# 2. 不确定要打开的文件是否存在，如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被替换。如果该文件不存在，创建新文件。
+# 只写文本文件 ？ 用w
+# 只写非文本文件（图片等）？ 用wb
+# 要既读又写？ 在后边添个+号增加权限， 用w+ 或者 wb+
+# 3. 不确定要打开的文件是否存在，而且想要追加写入（不替换原有内容，新内容写入到已有内容后）。如果该文件不存在，创建新文件。
+# 只写文本文件 ？ 用a
+# 只写非文本文件（图片等）？ 用ab
+# 要既读又写？ 在后边添个+号增加权限， 用a+ 或者 ab+
+# ---------------------------------------------------------
+
+# with open('a.txt', 'r+') as f1, open('a_num.txt', 'w+') as f2:
+#     for i, j in enumerate(f1):
+#         f2.write(str(i) + ' ' + j.strip() + '\n')
+#     f2.seek(0, 0)
+#     print(f2.read())
+
+
+
+# 1.time模块
+#     1.1 time.time()获取时间戳
+#     1.2 time.sleep(秒)程序在此处休眠多少秒
+
+# 2.datetime
+#     导包---> import datetime
+#     datetime 主要由五个模块组成：
+#     2.1 datetime.date()  需传入年月日 返回日期信息  datetime.date(year=2019, month=7, day=19)  datetime.date对象
+#     2.2 datetime.time()  需传入时分秒 返回时间信息
+#     2.3 datetime.datetime() 必须传入年月日,时分秒有默认值,返回日期+时间的信息
+#         datetime.datetime详解:
+#         2.3.1类方法: 模块.类.方法()
+#                    today() 获取当前的日期+时间  datetime.datetime.today()   datetime.datetime对象
+#                    now() / today() 获取当前的时间
+#                    fromtimestamp() 将时间戳转换为日期
+#                    strptime() 将字符串转化为时间对象
+#                    注意 : 格式一定要对应
+#         2.3.2实例方法: 一定是通过实例对象去调用,必须传入年月日
+#                    dat = datetime.datetime(year=2019, month=7, day=19)
+#                    date()获取日期  dat.date()
+#                    time()获取时间
+#                    replace()替换时间日期信息
+#                    timestamp()将日期信息转换为时间戳
+#                    weekday() 获取星期,0代表星期一以此类推
+#                    strftime() 由datetime转换成字符串,参数是格式化方式  s = dat.strftime("%Y%m%d%H%M%S")
+#     2.4 datetime.timedelta  表示时间间隔，即两个时间点之间的长度，常用来做时间的加减
+#     2.5 datetime.tzinfo  与时区有关的相关信息。
+
+
+# 3.目录操作模块
+#     3.1 sys 模块是指程序与python解释器的交互  python与pycharm
+#         3.1.1 导包import sys
+#         3.1.2 sys.path 获取默认导包路径
+#     3.2 os 模块是指程序与操作系统的交互  python与windows
+#         3.2.1 导包 import os
+#         3.2.2 getcwd()获取执行命令的位置
+#         3.2.3 path.join路径拼接  os.path.join('/Users/pangao', 'test.txt')
+#         3.2.4 path.split/splitext路径拆分   ('/Users/pangao/', 'test.txt') / ('/Users/pangao/test', '.txt')
+#         3.2.5 rename(原名,更改名称)文件重命名
+#         3.2.6 remove("删除文件")
+#         3.2.7 import shutil  shutil.copyfile(要复制的文件,复制后的文件名)复制文件
+#         3.2.8 listdir()获取当前目录下的所有文件
+#         3.2.9 path.isfile判断文件是否存在
+#         3.2.10 path.exists判断目录是否存在
+
+
+# 4.随机数模块
+#     4.1 导包  import random
+#     4.2 random.randint(a, b)返回a和b之间的随机整数
+#     4.3 random.random()返回0到1之间随机数(不包括1)
+#     4.4 random.choice(seq)在不为空的序列中随机选择一个元素
+#     4.5 random.sample(population, k),在一个序列或者集合中选择k个随机元素,返回由K个元素组成新的列表(k的值小于population的长度)
+#     4.6 random.uniform(a, b)产生一个指定范围内的随机浮点数 若a < b，随机数n范围a <= n <= b若a > b随机数n范围a<= n <= b；
+#     4.7 random.randrange(start, stop=None, step=1, _int=)在rang(start, stop,step)中选择一个随机数
+#     4.8 random.shuffle(x, random=None)：将列表顺序打乱
+
+
+# 5.Collections模块
+# 导入 from collections import defaultdict/....
+#     5.1 defaultdict 其实就是一个查不到key值时不会报错的dict,参数传入一个方法,返回值就是默认值
+#     5.2 counter 就是一个计数器相当于返回一个字典,key就是出现的元素,value就是该元素出现的次数
+#     5.3 deque队列 就是一个可以两头操作的容器，类似list但比列表速度更快
+#         d = deque() maxlen参数指定最大长度
+#         append右侧添加,appendleft左侧添加,pop右侧删除,popleft左侧删除,extend由此合并,extendleft左侧合并
+#     5.4 namedtuple 视为不可变的字典
+#         定义方法:变量1 = namedtuple("变量1","属性1 属性2 属性3")
+#                 变量2 =  变量1(属性1=XX,属性2=XX,属性3=XX)
+#     5.5 OrderedDict 本身就是一个dict,但是它的特别之处在于会记录插入dict的key和value的顺序
+#         定义方法:变量 = OrderedDict()
+
+
+# 6.pickle模块
+#     导包 import pickle
+#     序列化只可以操作python的基础数据类型
+#     6.1序列化 : 对象 --> 二进制 pickle.dumps()
+#     6.2反序列化 : 二进制 --> 对象 pickle.loads()
+#     6.3序列化存储文件
+#         6.3.1 open文件,序列化数据,将二进制写入文件
+#         6.3.2 获取文件对象,pickle.dump(数据,文件对象)
+#     6.4反序列化读取文件
+#         6.4.1 open文件,读取二进制信息,反序列化二进制
+#         6.4.2 获取文件对象,pickle.load(文件对象),直接返回反序列化后的数据
+
+# ----------------
+from collections import defaultdict, Counter
+
+# food 二元元组
+food = (
+    ('jack', 'milk'),
+    ('Ann', 'fruits'),
+    ('Arham', 'ham'),
+    ('Ann', 'soda'),
+    ('jack', 'dumplings'),
+    ('Ahmed', 'fried chicken'),
+)
+
+
+favourite_food = defaultdict(list)
+for n, f in food:
+    favourite_food[n].append(f)
+print(favourite_food)
+# Out：defaultdict(<class 'list'>, {'jack': ['milk', 'dumplings'], 'Ann': ['fruits', 'sod
+# a'], 'Arham': ['ham'], 'Ahmed': ['fried chicken']})
+
+
+favourite_food_count = Counter(n for n, f in food)  # 统计name出现的次数
+print(favourite_food_count)
+# Out: Counter({'jack': 2, 'Ann': 2, 'Arham': 1, 'Ahmed': 1})
